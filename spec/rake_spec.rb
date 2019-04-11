@@ -49,7 +49,7 @@ describe "Rakefile" do
       end
 
       it "seeds the database with dummy data from a seed file" do
-        Rake::Task["db:seed"].invoke
+        Rake::Task["seed"].invoke
         sql = "select * from students;"
         dummy_data = DB[:conn].execute(sql)
         expect(dummy_data.length).to eq(5)
